@@ -160,23 +160,27 @@
     toastTimer = setTimeout(function () { toastEl.className = ''; }, ms || 2400);
   }
 
-  function open(id, name) {
+  // Unload the scene first and give the TV a moment to reclaim that memory, then ask webOS to open the app.
+  // Heavy apps (Hulu, Netflix...) can stall on low-memory TVs if Dock's scene is still loaded behind them.
+  function launchFreed(params, name, logKey) {
     toast('Opening ' + name + '…', 4000);
-    D.launch(id, function (o) {
-      if (!o || o.returnValue === false) {
+    D.backdrop.release();
+    setTimeout(function () {
+      D.luna('luna://com.webos.applicationManager/launch', params, function (o) {
+        if (o && o.returnValue !== false) {
+          // the app should cover Dock now; if Dock is somehow still showing later, bring the scene back
+          setTimeout(function () { if (document.visibilityState === 'visible') D.backdrop.restore(); }, 12000);
+          return;
+        }
+        D.backdrop.restore();                               // still on screen: bring the scene back
         toast("Can't open " + name + (o && o.errorText ? ' (' + o.errorText + ')' : ''), 3500);
-        D.log('FAIL', 'launch', { id: id, o: o });
-      }
-    });
+        D.log('FAIL', logKey, { params: params, o: o });
+      });
+    }, 250);
   }
-
+  function open(id, name) { launchFreed({ id: id }, name, 'launch'); }
   // website shortcuts open in LG's own web browser
-  function openWeb(url, name) {
-    toast('Opening ' + name + '…', 4000);
-    D.luna('luna://com.webos.applicationManager/launch', { id: 'com.webos.app.browser', params: { target: url } }, function (o) {
-      if (!o || o.returnValue === false) { toast("Can't open " + name, 3500); D.log('FAIL', 'launch web', { url: url, o: o }); }
-    });
-  }
+  function openWeb(url, name) { launchFreed({ id: 'com.webos.app.browser', params: { target: url } }, name, 'launch web'); }
 
   function openItem(it) {
     if (!it) return;

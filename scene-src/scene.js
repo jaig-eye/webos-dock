@@ -15,7 +15,7 @@
   var o = {}, root, el = {}, level = 2, phase = null, forced = null, paused = false;
   var timers = [], beatTimer = null, blinkTimer = null, eventTimer = null, phaseTimer = null;
   var lastKey = 0, lookingDown = false, downTimer = null, backTimer = null, eventRunning = false, lastEvent = 0, hiddenAt = 0;
-  var wx = { sky: 'clear', precip: 'none', wind: 0 }, rainTimer = null, flashTimer = null;
+  var wx = { sky: 'clear', precip: 'none', wind: 0 }, rainTimer = null, flashTimer = null, released = false;
 
   // ---------- helpers ----------
   function later(fn, ms) { var t = setTimeout(function () { timers.splice(timers.indexOf(t), 1); fn(); }, ms); timers.push(t); return t; }
@@ -333,6 +333,27 @@
       if (root) applyWeather();
     },
     weather: function () { return wx; },
+    // Drop the scene's images and layers while another app is on screen (budget TVs have very little free memory),
+    // and bring them back when Dock is visible again.
+    release: function () {
+      window.Scene.pause();
+      if (released) return;
+      released = true;
+      root.style.display = 'none';
+      el.plateA.style.backgroundImage = 'none';
+      el.plateB.style.backgroundImage = 'none';
+      el.plateB.className = 'sc-plate b snap';
+      el.clouds.style.backgroundImage = 'none';
+    },
+    restore: function () {
+      if (released) {
+        released = false;
+        el.clouds.style.backgroundImage = 'url(' + art('cloud-tile.svg') + ')';
+        el.plateA.style.backgroundImage = 'url(' + plateUrl(phase) + ')';
+        root.style.display = '';
+      }
+      window.Scene.resume();
+    },
     pause: function () {
       if (paused) return;
       paused = true; hiddenAt = Date.now();

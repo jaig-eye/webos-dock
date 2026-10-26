@@ -3,12 +3,14 @@
 //   2 = + drifting clouds, water sparkle and the occasional visitor (manatee, dolphins, fish, star, rocket).
 // The auto-check measures frames on the TV and steps down a level by itself if the scene struggles.
 (function (D) {
-  var stage, level = 2, mode = 'auto', paused = false;
+  // `level` is the level we want; setClass(n) can show a lower one for a moment (start-up steps)
+  var stage, level = 2, mode = 'auto', paused = false, released = false, beginTimers = [];
   var NAMES = ['Low', 'Medium', 'Full'];
 
-  function setClass() {
-    stage.className = stage.className.replace(/\bbd\d\b/g, '').trim() + ' bd' + level;
-    if (window.Scene) window.Scene.setLevel(level);
+  function setClass(n) {
+    var v = n === undefined ? level : n;
+    stage.className = stage.className.replace(/\bbd\d\b/g, '').trim() + ' bd' + v;
+    if (window.Scene) window.Scene.setLevel(v);
   }
 
   // Frame-time sampler shared by the backdrop check and the speed test.
@@ -64,25 +66,24 @@
       mode = D.store.get('bd', 'auto');
       // an expired or older-version result starts again from Full, so a level dropped once can recover
       level = mode === 'auto' ? ((validSaved() || { level: 2 }).level) : Math.max(0, Math.min(2, +mode));
-      var target = level;
-      if (staged) level = 0;
       try {
         window.Scene.init(document.getElementById('scene'), {
-          art: 'scene/art/', plates: 'scene/plates/', level: level,
+          art: 'scene/art/', plates: 'scene/plates/', level: staged ? 0 : level,
           lat: D.CONFIG.weather.lat, lon: D.CONFIG.weather.lon,
           store: D.store, visitors: D.store.get('visitors', true),
           log: function (k, d) { D.log('INFO', 'scene ' + k, d); }
         });
       } catch (e) { D.log('FAIL', 'scene init', String(e)); }
-      setClass();
-      level = target;
+      setClass(staged ? 0 : undefined);
       if (!staged) setTimeout(function () { autoCheck(0); }, 5000);
     },
-    begin: function () {                                  // staged start: step up to the target level, one layer group at a time
-      var target = level;
-      level = 0; setClass();
-      setTimeout(function () { level = Math.min(1, target); setClass(); }, 1200);
-      setTimeout(function () { level = target; setClass(); setTimeout(function () { autoCheck(0); }, 5000); }, 2700);
+    begin: function () {                                  // staged start: step up to the wanted level, one layer group at a time
+      beginTimers.forEach(clearTimeout);                  // a second call restarts the steps instead of stacking them
+      setClass(0);
+      beginTimers = [
+        setTimeout(function () { setClass(Math.min(1, level)); }, 1200),
+        setTimeout(function () { setClass(); setTimeout(function () { autoCheck(0); }, 5000); }, 2700)
+      ];
     },
     setMode: function (m) {                               // 'auto' or 0..2
       mode = m; D.store.set('bd', m);
@@ -98,6 +99,21 @@
     visitors: function () { return D.store.get('visitors', true); },
     setVisitors: function (on) { D.store.set('visitors', !!on); if (window.Scene) window.Scene.setVisitors(!!on); },
     pause: function () { paused = true; gen++; stage.className += ' paused'; if (window.Scene) window.Scene.pause(); },
-    resume: function () { paused = false; stage.className = stage.className.replace(/\bpaused\b/g, '').trim(); if (window.Scene) window.Scene.resume(); }
+    resume: function () { paused = false; stage.className = stage.className.replace(/\bpaused\b/g, '').trim(); if (window.Scene) window.Scene.resume(); },
+    // while another app is on screen: unload the scene completely, so that app gets the memory
+    release: function () {
+      if (paused && released) return;
+      paused = true; released = true; gen++;
+      if (stage.className.indexOf('paused') < 0) stage.className += ' paused';
+      if (window.Scene) window.Scene.release();
+    },
+    // back on screen: reload the scene and bring the animation in step by step, as at start-up
+    restore: function () {
+      if (!released) { D.backdrop.resume(); return; }
+      released = false; paused = false;
+      stage.className = stage.className.replace(/\bpaused\b/g, '').trim();
+      if (window.Scene) window.Scene.restore();
+      D.backdrop.begin();
+    }
   };
 })(window.Dock);
