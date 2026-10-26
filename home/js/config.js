@@ -1,7 +1,7 @@
 // Dock: shared settings and namespace. Plain ES2017 only: the webOS 6 engine is Chromium 79 (no ?., ??, flex gap, inset).
 window.Dock = window.Dock || {};
 Dock.CONFIG = {
-  version: '1.0.2',
+  version: '1.0.3',
   // Clock time zone (IANA name, e.g. 'America/Chicago'). null = use the TV's own time zone setting.
   // Set this if your TV's time zone is wrong; Dock Settings can switch between the two.
   timeZone: null,

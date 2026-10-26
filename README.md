@@ -66,7 +66,7 @@ No root needed: it installs through LG's official Developer Mode.
 
    ```bash
    tools\ares ares-package home -o dist --no-minify
-   tools\ares ares-install --device tv dist\com.jaigeye.home_1.0.2_all.ipk
+   tools\ares ares-install --device tv dist\com.jaigeye.home_1.0.3_all.ipk
    tools\ares ares-launch --device tv com.jaigeye.home
    ```
 

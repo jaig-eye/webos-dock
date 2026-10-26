@@ -1,11 +1,11 @@
 {
   "name": "webos-dock",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "A cosy, animated home screen app for LG webOS TVs",
   "scripts": {
     "package": "ares-package home -o dist --no-minify",
-    "install:tv": "ares-install --device tv dist/com.jaigeye.home_1.0.2_all.ipk",
+    "install:tv": "ares-install --device tv dist/com.jaigeye.home_1.0.3_all.ipk",
     "launch:tv": "ares-launch --device tv com.jaigeye.home",
     "fetch-logos": "node tools/fetch-logos.js",
     "build-logos": "node tools/build-logos.js",
