@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 100" width="110" height="100">
+  <title>Pip head (three-quarter right, watching the bobber)</title>
+  <defs>
+    <clipPath id="piph-hc"><path d="M52 99.5C38 99.5 24 94 16 83C8 72 6 56 11 42C17 26 34 16 56 15C76 14 92 22 98 36C100.5 42 101.5 48 101.5 53C104 57 105.5 63 105 68C104.5 74 102 78 97 79C95 84 91 87 86 89.5C78 94 66 99.5 52 99.5Z"/></clipPath>
+    <clipPath id="piph-earc"><circle cx="13.5" cy="43.5" r="7"/></clipPath>
+    <linearGradient id="piph-hs" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#24150E" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#24150E" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#24150E" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- head -->
+  <path d="M52 99.5C38 99.5 24 94 16 83C8 72 6 56 11 42C17 26 34 16 56 15C76 14 92 22 98 36C100.5 42 101.5 48 101.5 53C104 57 105.5 63 105 68C104.5 74 102 78 97 79C95 84 91 87 86 89.5C78 94 66 99.5 52 99.5Z" fill="#5B3A29"/>
+  <g clip-path="url(#piph-hc)">
+    <!-- back of the head in shadow -->
+    <path d="M0 20L30 20C22 32 18 46 19 60C20 74 26 86 40 96L56 101L0 101Z" fill="#43291C"/>
+    <path d="M0 30L13.5 42C8.5 56 10.5 72 18.5 82L10 92L0 92Z" fill="#8494AE" opacity="0.13"/>
+    <!-- warm light on the turned cheek and brow -->
+    <ellipse cx="75" cy="61" rx="11" ry="7" fill="#694431"/>
+    <path d="M94 36C97.5 42 99.5 48 100 55L110 55L110 36Z" fill="#76513A"/>
+    <!-- shadow under the hat brim -->
+    <path d="M0 33C30 31 80 32 110 38L110 48C96 45 80 43.5 60 43.5C40 43.5 20 45 0 47.5Z" fill="url(#piph-hs)"/>
+    <!-- cream chin and throat -->
+    <path d="M75 76C69.5 82 67.5 89 69.5 93.5C71 96.2 74.5 96.6 79 94.6L112 94L112 71.5L98 71.5C88 71.5 80 73 75 76Z" fill="#EAD5B6"/>
+    <path d="M112 74L96 76C94 81 90 84 85 86.5C81 89.4 77 91.6 72.6 93C71.4 94 71.6 95.4 73.4 96L80 96L112 98Z" fill="#D6BE9C"/>
+    <!-- blush -->
+    <ellipse cx="72" cy="68" rx="6" ry="3.6" fill="#D9846C" opacity="0.32"/>
+    <!-- whisker pads -->
+    <ellipse cx="85" cy="70.6" rx="10.6" ry="7.9" fill="#B39575"/>
+    <ellipse cx="85" cy="69.3" rx="10.2" ry="7.2" fill="#C9AC8A"/>
+    <ellipse cx="86.2" cy="66.6" rx="6.4" ry="3.3" fill="#DAC2A0"/>
+    <ellipse cx="99" cy="69" rx="6.6" ry="8" fill="#B39575"/>
+    <ellipse cx="99" cy="67.8" rx="6.2" ry="7.3" fill="#C9AC8A"/>
+    <ellipse cx="99.8" cy="64.8" rx="3.8" ry="3.4" fill="#DAC2A0"/>
+  </g>
+
+  <!-- whisker dots -->
+  <g fill="#8A6A52">
+    <circle cx="80.5" cy="68.6" r="0.9"/><circle cx="84.8" cy="71.6" r="0.9"/><circle cx="89" cy="69" r="0.9"/>
+    <circle cx="97.6" cy="70.8" r="0.8"/><circle cx="101.4" cy="68.2" r="0.8"/>
+  </g>
+
+  <!-- nose and mouth -->
+  <path d="M89.6 57.6C89.6 53.8 102.4 53.4 102.8 57.2C103 60.6 99 63.8 96.2 63.8C93.4 63.8 89.6 61.4 89.6 57.6Z" fill="#2A1A12"/>
+  <ellipse cx="96.8" cy="55.9" rx="2.9" ry="1.25" fill="#6E574A" opacity="0.9"/>
+  <path d="M96.2 63.8L95.9 68.6M95.9 68.6C94 71.4 90.6 72 88 70.6M95.9 68.6C97.4 70.8 99.8 71 101.6 69.8" stroke="#3A2418" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+
+  <!-- eyes: big, dark, one catchlight each -->
+  <ellipse cx="63" cy="53" rx="9" ry="10.2" fill="#3E271B"/>
+  <ellipse cx="63" cy="53" rx="7.4" ry="8.6" fill="#1B120D"/>
+  <circle cx="65.8" cy="49.4" r="2.5" fill="#FFF8EC"/>
+  <circle cx="60.4" cy="57.2" r="1.1" fill="#FFF8EC" opacity="0.35"/>
+  <ellipse cx="89.5" cy="50.5" rx="6.9" ry="9.3" fill="#3E271B"/>
+  <ellipse cx="89.5" cy="50.5" rx="5.4" ry="7.8" fill="#1B120D"/>
+  <circle cx="91.4" cy="47.2" r="2" fill="#FFF8EC"/>
+  <circle cx="87.9" cy="54.6" r="0.8" fill="#FFF8EC" opacity="0.3"/>
+
+  <!-- whiskers -->
+  <path d="M77 68C71 66.6 66 66.2 61 66.8M77.2 71.2C71.4 71.2 66.4 72.2 61.6 73.8M78.6 74.2C74.2 75.6 70.2 77.6 66.6 80.2M103.2 64.8C105.4 63.6 107.4 63 109.4 62.6M104 68.4C106 68.4 107.8 68.7 109.4 69.2" stroke="#F2E6D0" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.9"/>
+
+  <!-- near ear peeking from under the brim -->
+  <circle cx="13.5" cy="43.5" r="7" fill="#4E3122"/>
+  <g clip-path="url(#piph-earc)">
+    <path d="M6 40C9 36.5 15 35.5 20.5 39L21 34L6 34Z" fill="#694431"/>
+  </g>
+  <ellipse cx="15" cy="44.8" rx="3.1" ry="3.3" fill="#2A1A12" opacity="0.55"/>
+
+  <!-- bucket hat -->
+  <path d="M26 27C26 16 30 6 46 3.5C56 2 70 2.5 78 6C86 10 88 18 86.5 27Z" fill="#D9B65A"/>
+  <path d="M26 27C26 16 30 6 46 3.5C39 8.5 35.5 16.5 35 27Z" fill="#BE9B48"/>
+  <path d="M64 3.6C74 3.8 83 8.5 85.6 16.5C81 12.4 75 8.6 66 6.6Z" fill="#ECD48A"/>
+  <path d="M26.2 18.5C40 21.5 70 21.5 87.2 18.2L86.8 27C70 29.6 40 29.6 26 27Z" fill="#B08A3A"/>
+  <path d="M26.2 18.5C40 21.5 70 21.5 87.2 18.2L87.1 20.2C70 23.2 40 23.2 26.2 20.4Z" fill="#C49C48"/>
+  <path d="M6 33C8 26 26 23 56 23.5C82 24 100 27 103 33C104.5 37.5 100 39.5 94 38C80 34.5 34 33.5 16 38.5C9 40.5 5 37.5 6 33Z" fill="#D9B65A"/>
+  <path d="M16 38.5C34 33.5 80 34.5 94 38C100 39.5 104.5 37.5 103 33C102.2 35.6 98.6 36.4 93.6 35.4C78.6 32.4 34 31.4 15 35.6C10.4 36.6 6.8 35.6 6 33C5 37.5 9 40.5 16 38.5Z" fill="#A98A3D"/>
+  <path d="M30 25C50 23.6 74 24 92 26.6C76 26.2 52 25.8 32 26.8Z" fill="#ECD48A"/>
+  <path d="M11.5 32.4C30 28 82 28.4 99 31.8" stroke="#C2A04B" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+</svg>

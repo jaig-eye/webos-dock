@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 110" width="220" height="110">
+  <title>Pip asleep under his patchwork blanket</title>
+  <defs>
+    <radialGradient id="pips-cs" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#120A06" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#120A06" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pips-bshade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A1E1A" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#2A1E1A" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#2A1E1A" stop-opacity="0.34"/>
+    </linearGradient>
+    <clipPath id="pips-blc"><path d="M54 108.5C52 90 58 70 74 60C86 53 100 54 112 52C122 44 140 39 156 41C176 44 194 56 200 74C204 86 203 100 200 108.5Z"/></clipPath>
+    <clipPath id="pips-tlc"><path d="M186 96C196 96.5 204 99 208.5 101.5C212 97.5 212.5 91 210 86.5C209 84 211 82 213.5 83.2C218 86 218.4 97 213.4 103.4C209 108.6 199 108.6 188 108.6Z"/></clipPath>
+    <clipPath id="pips-shc"><path d="M46 105C27 105 13 92 13 73C13 54 27 40 46 40C65 40 80 53 80 72C80 91 65 105 46 105Z"/></clipPath>
+  </defs>
+
+  <!-- contact shadow on the deck -->
+  <ellipse cx="112" cy="107.4" rx="106" ry="2.6" fill="url(#pips-cs)"/>
+
+  <!-- tail poking out on the right -->
+  <path d="M186 96C196 96.5 204 99 208.5 101.5C212 97.5 212.5 91 210 86.5C209 84 211 82 213.5 83.2C218 86 218.4 97 213.4 103.4C209 108.6 199 108.6 188 108.6Z" fill="#5B3A29"/>
+  <g clip-path="url(#pips-tlc)">
+    <path d="M180 92L208 98C214 93 214.5 88 212.5 84L220 80L220 70L180 70Z" fill="#76513A"/>
+    <path d="M180 105C196 106.2 206 105 214 100L220 112L180 112Z" fill="#43291C"/>
+  </g>
+
+  <!-- patchwork blanket over his curled body -->
+  <path d="M54 108.5C52 90 58 70 74 60C86 53 100 54 112 52C122 44 140 39 156 41C176 44 194 56 200 74C204 86 203 100 200 108.5Z" fill="#D6C8AC"/>
+  <g clip-path="url(#pips-blc)">
+    <path d="M40 30L92 30L89.7 77.6L40 88Z" fill="#6F8F8C"/>
+    <path d="M92 30L128 30L126.9 75.2L89.7 77.6Z" fill="#B47A6C"/>
+    <path d="M128 30L166 30L168.3 76.6L126.9 75.2Z" fill="#C8A35E"/>
+    <path d="M166 30L215 30L215 83L168.3 76.6Z" fill="#6F8F8C"/>
+    <path d="M40 88L89.7 77.6L88 112L40 112Z" fill="#C8A35E"/>
+    <path d="M126.9 75.2L168.3 76.6L170 112L126 112Z" fill="#6F8F8C"/>
+    <path d="M168.3 76.6L215 83L215 112L170 112Z" fill="#B47A6C"/>
+    <!-- quilting stitches -->
+    <path d="M40 88L89.7 77.6L126.9 75.2L168.3 76.6L215 83M92 30L88 112M128 30L126 112M166 30L170 112" stroke="#F1E8D6" stroke-width="0.9" stroke-dasharray="2.4 2" fill="none" opacity="0.55"/>
+    <!-- form: light across the top, shade low and on the back side, a crease between shoulder and hip -->
+    <path d="M74 64C86 57 100 58 112 56C122 48 140 43.5 156 45C174 47.6 190 58 197 74L220 74L220 30L70 30Z" fill="#FFF4E0" opacity="0.18"/>
+    <rect x="50" y="38" width="156" height="72" fill="url(#pips-bshade)"/>
+    <path d="M110 52C116 64 119 84 117 109L124 109C125 86 121 66 113 51Z" fill="#2A1E1A" opacity="0.14"/>
+    <path d="M150 108.5C152 96 160 86 172 82C164 90 158 98 157 108.5Z" fill="#2A1E1A" opacity="0.12"/>
+    <!-- folded-back top edge tucked under his chin -->
+    <path d="M76 58C82 54 90 53 96 54C90 66 88 86 92 108.5L82 108.5C79 88 79 70 76 58Z" fill="#E0D4BB"/>
+    <path d="M96 54C90 66 88 86 92 108.5L95.4 108.5C91.6 87 93 67 98.6 54.4Z" fill="#2A1E1A" opacity="0.18"/>
+    <path d="M80.4 60C83 74 83.6 90 85.6 108" stroke="#F1E8D6" stroke-width="0.9" stroke-dasharray="2.4 2" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- head resting on the deck, turned toward the lantern -->
+  <g transform="translate(0 1.5) rotate(-22 46 72)">
+    <circle cx="71" cy="47" r="6" fill="#4E3122"/>
+    <ellipse cx="70.6" cy="47.8" rx="2.6" ry="2.8" fill="#2A1A12" opacity="0.5"/>
+    <path d="M46 105C27 105 13 92 13 73C13 54 27 40 46 40C65 40 80 53 80 72C80 91 65 105 46 105Z" fill="#5B3A29"/>
+    <g clip-path="url(#pips-shc)">
+      <path d="M0 40L24 40C18 52 17 68 20 80C23 91 30 99 40 106L0 106Z" fill="#43291C"/>
+      <path d="M66 44C74 52 78 62 78 72L84 72L84 40Z" fill="#76513A"/>
+      <path d="M30 106C31 97 38 92.4 46.5 92.8C56 92.4 63 97 63 105L63 110L30 110Z" fill="#EAD5B6"/>
+      <ellipse cx="28" cy="82.5" rx="5.4" ry="3.2" fill="#D9846C" opacity="0.32"/>
+      <ellipse cx="64" cy="81.5" rx="5" ry="3.1" fill="#D9846C" opacity="0.32"/>
+      <ellipse cx="41" cy="89.4" rx="7.8" ry="5.9" fill="#B39575"/>
+      <ellipse cx="41" cy="88.4" rx="7.4" ry="5.4" fill="#C9AC8A"/>
+      <ellipse cx="52.4" cy="89.2" rx="7.4" ry="5.9" fill="#B39575"/>
+      <ellipse cx="52.4" cy="88.2" rx="7" ry="5.4" fill="#C9AC8A"/>
+      <ellipse cx="41.6" cy="86.6" rx="4.6" ry="2.5" fill="#DAC2A0"/>
+      <ellipse cx="53" cy="86.4" rx="4.4" ry="2.5" fill="#DAC2A0"/>
+    </g>
+    <!-- happy closed eyes -->
+    <path d="M28.4 74.2C30.4 69.6 37.6 69.6 39.6 74.2M51.6 73.6C53.6 69 60.8 69 62.8 73.6" stroke="#2A1A12" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <!-- nose, mouth, whiskers -->
+    <path d="M40.6 79.2C40.6 75.8 52.4 75.6 52.7 78.8C52.9 81.7 49.4 84.3 46.8 84.3C44.2 84.3 40.6 82.5 40.6 79.2Z" fill="#2A1A12"/>
+    <ellipse cx="47.2" cy="77.8" rx="2.4" ry="1" fill="#6E574A" opacity="0.9"/>
+    <path d="M46.8 84.3L46.7 87.6M46.7 87.6C45.2 90 42.6 90.4 40.6 89.4M46.7 87.6C48.2 90 50.8 90.4 52.8 89.4" stroke="#3A2418" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    <path d="M35 87C30.6 85.8 27 85.6 23 86.2M35.4 90C31.4 90.4 27.8 91.6 24.4 93.4M58.4 86.6C62.6 85.4 66.2 85 70 85.4M58.2 89.8C62 90.2 65.4 91.2 68.6 93" stroke="#F2E6D0" stroke-width="0.85" stroke-linecap="round" fill="none" opacity="0.85"/>
+    <!-- bucket hat, tipped down over his brow -->
+    <g transform="rotate(-10 46 56)">
+      <path d="M22 53C22 44 26 36 38 34C46 32.6 56 33 62 36C68 39 70 45 69 53Z" fill="#D9B65A"/>
+      <path d="M22 53C22 44 26 36 38 34C33 38 30 44 30 53Z" fill="#BE9B48"/>
+      <path d="M56 33.8C62 34.8 67 38 68.4 43C65 40.4 61 38 57 36.6Z" fill="#ECD48A"/>
+      <path d="M22.2 47C34 49.5 56 49.5 69.2 46.8L69 53C56 55 34 55 22 53Z" fill="#B08A3A"/>
+      <path d="M8 58C10 52 24 50 45 50.4C66 50.8 80 53 82.5 58C84 62 80 64 75 62.8C62 59.6 30 59 16 63C10 64.6 7 62 8 58Z" fill="#D9B65A"/>
+      <path d="M16 63C30 59 62 59.6 75 62.8C80 64 84 62 82.5 58C81.6 60.6 78.4 61.2 74.6 60.4C62 57.4 30 56.6 15.4 60.4C11 61.4 8.4 60.6 8 58C7 62 10 64.6 16 63Z" fill="#A98A3D"/>
+      <path d="M12.6 57.4C28 53.6 66 54 79 57" stroke="#C2A04B" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- paw holding the blanket edge up to his chin -->
+  <ellipse cx="83" cy="80" rx="7.2" ry="5.4" fill="#5B3A29" transform="rotate(-28 83 80)"/>
+  <path d="M78.6 78.4C80.6 76.2 85 75 88.4 76.4" stroke="#76513A" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path d="M81.2 80.4L84 84.4M84.6 78.6L87.8 82.2" stroke="#2A1A12" stroke-width="1" stroke-linecap="round" opacity="0.8"/>
+</svg>

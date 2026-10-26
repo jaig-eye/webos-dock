@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380" width="620" height="380">
+  <defs>
+    <clipPath id="box"><rect width="620" height="380"/></clipPath>
+    <linearGradient id="p" gradientUnits="userSpaceOnUse" x1="0" y1="380" x2="606" y2="20">
+      <stop offset="0" stop-color="#8E95A4" stop-opacity=".2"/>
+      <stop offset=".2" stop-color="#9AA1AE" stop-opacity=".28"/>
+      <stop offset=".5" stop-color="#C3C9D3" stop-opacity=".42"/>
+      <stop offset=".82" stop-color="#E8ECF3" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity=".7"/>
+    </linearGradient>
+    <linearGradient id="feather" gradientUnits="userSpaceOnUse" x1="0" y1="380" x2="606" y2="20">
+      <stop offset="0" stop-color="#C9D0DC" stop-opacity=".04"/>
+      <stop offset=".5" stop-color="#DDE4EF" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#F2F6FF" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="core" gradientUnits="userSpaceOnUse" x1="0" y1="380" x2="606" y2="20">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset=".45" stop-color="#FFFFFF" stop-opacity=".18"/>
+      <stop offset=".85" stop-color="#FFFFFF" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity=".85"/>
+    </linearGradient>
+    <radialGradient id="head" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".75"/>
+      <stop offset=".4" stop-color="#FFF4DE" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#FFE9C2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g clip-path="url(#box)" stroke-linejoin="round">
+    <path d="M4 380C20 222 200 52 560 14C580 12 596 16 606 20C594 32 586 58 562 60C240 90 46 238 16 380Z" fill="none" stroke="url(#feather)" stroke-width="18"/>
+    <path d="M4 380C20 222 200 52 560 14C580 12 596 16 606 20C594 32 586 58 562 60C240 90 46 238 16 380Z" fill="url(#p)" stroke="url(#feather)" stroke-width="7"/>
+    <path d="M7 380C22 226 202 60 560 22C580 20 596 19 606 20C592 32 584 51 561 52C238 82 45 234 15 380Z" fill="url(#p)"/>
+    <path d="M10 380C26 228 206 66 562 28C582 25 598 21 606 20C593 27 584 39 562 40C236 70 44 230 14 380Z" fill="url(#core)"/>
+    <ellipse cx="606" cy="20" rx="14" ry="14" fill="url(#head)"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 44" width="60" height="44">
+  <defs>
+    <linearGradient id="back" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7A8792"/>
+      <stop offset=".6" stop-color="#5E6B75"/>
+      <stop offset="1" stop-color="#4C5862"/>
+    </linearGradient>
+    <linearGradient id="wl" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="60" y2="0">
+      <stop offset="0" stop-color="#E4F0F4" stop-opacity="0"/>
+      <stop offset=".1" stop-color="#E4F0F4" stop-opacity=".85"/>
+      <stop offset=".9" stop-color="#E4F0F4" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#E4F0F4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wd" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="60" y2="0">
+      <stop offset="0" stop-color="#33424C" stop-opacity="0"/>
+      <stop offset=".1" stop-color="#33424C" stop-opacity=".2"/>
+      <stop offset=".9" stop-color="#33424C" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#33424C" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M20.6 33L21 31C23 24 22 17 15.6 10.4C14.8 9.6 15.2 8.8 16.4 8.9C27 9.4 38.5 16.5 45 31L45.4 33Z" fill="#66737D"/>
+  <path d="M21 31C23 24 22 17 15.6 10.4C19.6 13.2 26 20 26.6 31Z" fill="#4F5B65"/>
+  <path d="M16.6 9.2C27 9.8 38.5 16.6 45 31L42 31C36.5 19.2 27 12 16.6 9.2Z" fill="#8794A0"/>
+  <path d="M20 10.2C28 11.6 35.6 16.4 40.6 23.4" fill="none" stroke="#C4CED6" stroke-opacity=".7" stroke-width="1" stroke-linecap="round"/>
+  <path d="M1 42C10 33 24 28.5 36 28.5C46 28.5 54 33 59 42Z" fill="url(#back)"/>
+  <path d="M6 37C14 31.6 26 29.4 36 29.4C45 29.4 51 32 55 36" fill="none" stroke="#A9B5BE" stroke-opacity=".6" stroke-width="1.1" stroke-linecap="round"/>
+  <rect x="0" y="42.8" width="60" height="1.2" fill="url(#wd)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M0.8 42.2H59.2" stroke="url(#wl)" stroke-width="1.4" stroke-dasharray="9 3 14 2 7 4 11 3"/>
+  </g>
+  <g fill="none" stroke="#F1F7F9" stroke-opacity=".8" stroke-width="1" stroke-linecap="round">
+    <path d="M52.6 41.4Q56.4 38.6 59.2 41"/>
+    <path d="M0.8 41Q3.6 38.6 7.4 40.6"/>
+  </g>
+</svg>

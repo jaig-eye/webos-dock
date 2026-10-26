@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 230" width="1920" height="230">
+  <defs>
+    <clipPath id="tile"><rect width="1920" height="230"/></clipPath>
+    <linearGradient id="cb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".45" stop-color="#F6F9FC"/>
+      <stop offset=".78" stop-color="#D5DFEA"/>
+      <stop offset="1" stop-color="#A9B9CC"/>
+    </linearGradient>
+    <linearGradient id="cf" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".4" stop-color="#F3F7FB"/>
+      <stop offset="1" stop-color="#BACADB"/>
+    </linearGradient>
+    <linearGradient id="ck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2F6FA"/>
+      <stop offset=".55" stop-color="#DCE4EE"/>
+      <stop offset="1" stop-color="#BCC9D9"/>
+    </linearGradient>
+    <linearGradient id="wisp" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset=".3" stop-color="#FFFFFF" stop-opacity=".5"/>
+      <stop offset=".65" stop-color="#EEF3F8" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#tile)" stroke-linejoin="round">
+    <g fill="url(#wisp)">
+      <ellipse cx="700" cy="46" rx="240" ry="7"/>
+      <ellipse cx="660" cy="43" rx="170" ry="2.6"/>
+      <ellipse cx="1510" cy="28" rx="220" ry="5.5"/>
+      <ellipse cx="1560" cy="31" rx="140" ry="2"/>
+      <ellipse cx="1860" cy="62" rx="200" ry="6"/>
+      <ellipse cx="1820" cy="59" rx="130" ry="2.2"/>
+      <ellipse cx="-60" cy="62" rx="200" ry="6"/>
+      <ellipse cx="-100" cy="59" rx="130" ry="2.2"/>
+    </g>
+    <g id="cloud-a">
+      <path d="M236 175A46 46 0 0 1 300 118A44 44 0 0 1 372 110L372 190L236 190Z" fill="none" stroke="url(#ck)" stroke-width="20" stroke-opacity=".14"/>
+      <path d="M236 175A46 46 0 0 1 300 118A44 44 0 0 1 372 110L372 190L236 190Z" fill="url(#ck)" stroke="url(#ck)" stroke-width="8" stroke-opacity=".35"/>
+      <path d="M170 205A30 30 0 0 1 214 178A48 48 0 0 1 292 142A84 84 0 0 1 428 124A58 58 0 0 1 526 156A44 44 0 0 1 590 205Z" fill="none" stroke="url(#cb)" stroke-width="24" stroke-opacity=".16"/>
+      <path d="M170 205A30 30 0 0 1 214 178A48 48 0 0 1 292 142A84 84 0 0 1 428 124A58 58 0 0 1 526 156A44 44 0 0 1 590 205Z" fill="url(#cb)" stroke="url(#cb)" stroke-width="10" stroke-opacity=".38"/>
+      <path d="M205 205A34 34 0 0 1 262 176A52 52 0 0 1 350 168A54 54 0 0 1 440 174A70 70 0 0 1 548 205Z" fill="url(#cf)"/>
+    </g>
+    <g id="cloud-b">
+      <path d="M690 195A28 28 0 0 1 735 170A44 44 0 0 1 805 150A46 46 0 0 1 880 195Z" fill="none" stroke="url(#cb)" stroke-width="22" stroke-opacity=".16"/>
+      <path d="M690 195A28 28 0 0 1 735 170A44 44 0 0 1 805 150A46 46 0 0 1 880 195Z" fill="url(#cb)" stroke="url(#cb)" stroke-width="9" stroke-opacity=".38"/>
+      <path d="M712 195A30 30 0 0 1 760 176A52 52 0 0 1 846 195Z" fill="url(#cf)"/>
+    </g>
+    <g id="cloud-f">
+      <path d="M930 180A18 18 0 0 1 958 164A26 26 0 0 1 1000 180Z" fill="none" stroke="url(#cb)" stroke-width="16" stroke-opacity=".16"/>
+      <path d="M930 180A18 18 0 0 1 958 164A26 26 0 0 1 1000 180Z" fill="url(#cb)" stroke="url(#cb)" stroke-width="7" stroke-opacity=".38"/>
+    </g>
+    <g id="cloud-c">
+      <path d="M1210 150A36 36 0 0 1 1262 110A44 44 0 0 1 1300 185L1300 195L1210 195Z" fill="none" stroke="url(#ck)" stroke-width="20" stroke-opacity=".14"/>
+      <path d="M1210 150A36 36 0 0 1 1262 110A44 44 0 0 1 1300 185L1300 195L1210 195Z" fill="url(#ck)" stroke="url(#ck)" stroke-width="8" stroke-opacity=".35"/>
+      <path d="M1020 210A30 30 0 0 1 1066 186A50 50 0 0 1 1140 148A60 60 0 0 1 1236 140A36 36 0 0 1 1292 170A30 30 0 0 1 1330 210Z" fill="none" stroke="url(#cb)" stroke-width="24" stroke-opacity=".16"/>
+      <path d="M1020 210A30 30 0 0 1 1066 186A50 50 0 0 1 1140 148A60 60 0 0 1 1236 140A36 36 0 0 1 1292 170A30 30 0 0 1 1330 210Z" fill="url(#cb)" stroke="url(#cb)" stroke-width="10" stroke-opacity=".38"/>
+      <path d="M1050 210A32 32 0 0 1 1100 185A56 56 0 0 1 1190 172A72 72 0 0 1 1300 210Z" fill="url(#cf)"/>
+    </g>
+    <g id="cloud-d">
+      <path d="M1440 198A30 30 0 0 1 1486 172A52 52 0 0 1 1570 150A56 56 0 0 1 1660 198Z" fill="none" stroke="url(#cb)" stroke-width="22" stroke-opacity=".16"/>
+      <path d="M1440 198A30 30 0 0 1 1486 172A52 52 0 0 1 1570 150A56 56 0 0 1 1660 198Z" fill="url(#cb)" stroke="url(#cb)" stroke-width="9" stroke-opacity=".38"/>
+      <path d="M1462 198A34 34 0 0 1 1520 178A70 70 0 0 1 1636 198Z" fill="url(#cf)"/>
+    </g>
+    <g id="cloud-e">
+      <path d="M1790 185A36 36 0 0 1 1830 132A40 40 0 0 1 1890 124L1890 198L1790 198Z" fill="none" stroke="url(#ck)" stroke-width="20" stroke-opacity=".14"/>
+      <path d="M1790 185A36 36 0 0 1 1830 132A40 40 0 0 1 1890 124L1890 198L1790 198Z" fill="url(#ck)" stroke="url(#ck)" stroke-width="8" stroke-opacity=".35"/>
+      <path d="M1730 212A28 28 0 0 1 1772 190A48 48 0 0 1 1840 150A64 64 0 0 1 1936 128A40 40 0 0 1 2000 160A34 34 0 0 1 2040 212Z" fill="none" stroke="url(#cb)" stroke-width="24" stroke-opacity=".16"/>
+      <path d="M1730 212A28 28 0 0 1 1772 190A48 48 0 0 1 1840 150A64 64 0 0 1 1936 128A40 40 0 0 1 2000 160A34 34 0 0 1 2040 212Z" fill="url(#cb)" stroke="url(#cb)" stroke-width="10" stroke-opacity=".38"/>
+      <path d="M1758 212A34 34 0 0 1 1810 186A56 56 0 0 1 1900 170A70 70 0 0 1 2012 212Z" fill="url(#cf)"/>
+    </g>
+    <g id="cloud-e-wrap" transform="translate(-1920 0)">
+      <path d="M1790 185A36 36 0 0 1 1830 132A40 40 0 0 1 1890 124L1890 198L1790 198Z" fill="none" stroke="url(#ck)" stroke-width="20" stroke-opacity=".14"/>
+      <path d="M1790 185A36 36 0 0 1 1830 132A40 40 0 0 1 1890 124L1890 198L1790 198Z" fill="url(#ck)" stroke="url(#ck)" stroke-width="8" stroke-opacity=".35"/>
+      <path d="M1730 212A28 28 0 0 1 1772 190A48 48 0 0 1 1840 150A64 64 0 0 1 1936 128A40 40 0 0 1 2000 160A34 34 0 0 1 2040 212Z" fill="none" stroke="url(#cb)" stroke-width="24" stroke-opacity=".16"/>
+      <path d="M1730 212A28 28 0 0 1 1772 190A48 48 0 0 1 1840 150A64 64 0 0 1 1936 128A40 40 0 0 1 2000 160A34 34 0 0 1 2040 212Z" fill="url(#cb)" stroke="url(#cb)" stroke-width="10" stroke-opacity=".38"/>
+      <path d="M1758 212A34 34 0 0 1 1810 186A56 56 0 0 1 1900 170A70 70 0 0 1 2012 212Z" fill="url(#cf)"/>
+    </g>
+  </g>
+</svg>

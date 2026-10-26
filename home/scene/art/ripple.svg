@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 26" width="90" height="26">
+  <defs>
+    <linearGradient id="ring" gradientUnits="userSpaceOnUse" x1="0" y1="3.5" x2="0" y2="22.5">
+      <stop offset="0" stop-color="#EAF4F7" stop-opacity=".22"/>
+      <stop offset=".5" stop-color="#EAF4F7" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#F6FBFC" stop-opacity=".95"/>
+    </linearGradient>
+    <linearGradient id="front" gradientUnits="userSpaceOnUse" x1="8" y1="0" x2="82" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#FFFFFF" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M12 15A37 7.8 0 0 0 78 15" fill="none" stroke="#1E3A4A" stroke-opacity=".14" stroke-width="1.2"/>
+  <ellipse cx="45" cy="13" rx="41" ry="9.5" fill="none" stroke="url(#ring)" stroke-width="1.4"/>
+  <path d="M7.8 17A41 9.5 0 0 0 82.2 17" fill="none" stroke="url(#front)" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

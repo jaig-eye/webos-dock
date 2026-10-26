@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.ipk
+# webOS CLI device list and keys for your TV (tools/ares.cmd keeps them here)
+.ares/
+# third-party logos fetched by tools/fetch-logos.js, and the cards built from them
+.downloads/
+home/assets/logos/*.svg
+home/assets/logos/custom/*
+!home/assets/logos/custom/.gitkeep
+# development output
+dev-log.jsonl
+scene-src/plates/
+scene-src/icons/

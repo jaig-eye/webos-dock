@@ -1,0 +1,11 @@
+{
+  "id": "com.jaigeye.home",
+  "version": "1.0.1",
+  "vendor": "jaigeye",
+  "type": "web",
+  "main": "index.html",
+  "title": "Dock",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "resolution": "1920x1080"
+}

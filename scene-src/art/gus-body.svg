@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 130" width="120" height="130">
+  <title>Gus body (standing, no head)</title>
+  <defs>
+    <!-- the socket stops above the shoulder; its top is a soft ramp (gradients below), not a hard clip edge -->
+    <clipPath id="nkClip"><polygon points="0,0 120,0 120,77 0,77"/></clipPath>
+    <!-- socket fades IN over the 6px just above where gus-head's neck starts fading OUT (head coords, same
+         direction as gus-head's hW/hS/hC), so a swivelled head never shows a hard-edged step at the neck base -->
+    <linearGradient id="skW" gradientUnits="userSpaceOnUse" x1="58.3" y1="91.6" x2="61.3" y2="96.8">
+      <stop offset="0" stop-color="#F2EDE4" stop-opacity="0"/>
+      <stop offset="1" stop-color="#F2EDE4"/>
+    </linearGradient>
+    <linearGradient id="skS" gradientUnits="userSpaceOnUse" x1="58.3" y1="91.6" x2="61.3" y2="96.8">
+      <stop offset="0" stop-color="#D8D1C5" stop-opacity="0"/>
+      <stop offset="1" stop-color="#D8D1C5"/>
+    </linearGradient>
+    <linearGradient id="skC" gradientUnits="userSpaceOnUse" x1="58.3" y1="91.6" x2="61.3" y2="96.8">
+      <stop offset="0" stop-color="#5B301F" stop-opacity="0"/>
+      <stop offset="1" stop-color="#5B301F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- contact shadow on the piling top (kept inside the piling width, box x 46-74) -->
+  <ellipse cx="60" cy="128.2" rx="14" ry="1.6" fill="#1E1B19" fill-opacity=".3"/>
+
+  <!-- far leg and far foot (behind) -->
+  <path fill="#2F2B28" d="M65,113 L69,113 L70.2,123.4 L66,123.4 Z"/>
+  <path fill="#2F2B28" d="M72.6,123 C68,122.2 61,122.2 56,122.8 C53.6,123.1 52.2,124.3 51.8,125.6 C51.5,126.8 51.8,127.7 52.6,128.2 L74,128.2 C75.2,126.4 74.8,124 72.6,123 Z"/>
+  <!-- near leg (top hidden by the belly) -->
+  <path fill="#3A3632" d="M54.6,113 L58.6,113 L59,123.6 L54.8,123.6 Z"/>
+
+  <!-- short dark tail under the wingtips -->
+  <path fill="#4A4540" d="M86,118 C96,121 106,124.6 113.6,128 C110,128.8 105.6,128.6 102,127.8 C96,126.2 90,123.8 85,121.4 Z"/>
+
+  <!-- body: dark breast and belly -->
+  <path fill="#5E5850" d="M58,57 C45,59 31,71 29,88 C27,104 35,115 49,119 C60,122 75,122 86,119 C96,120 106,123 116,126.5 C114,116.5 108.5,100.5 101,86.5 C96,75 93,63 89,56.5 C86,52.5 81,51.5 76,52 C69,52.5 62,54 58,57 Z"/>
+  <!-- breast catching the warm key light -->
+  <path fill="#6D665D" d="M57,58 C45,60 32,71 30.5,87 C29.6,96 30.6,103 33.5,108.5 C36,98 41,87 49,79 C53,75 57,72 59,70 L58,60 Z"/>
+  <path fill="#877F73" d="M54,59.4 C44,62.5 34,72 32,86 C31.5,90 31.5,94 32,97 C33,90 35.5,82 40,75 C44,69 49,63.6 54,59.4 Z"/>
+  <!-- cool bounce light from the water under the belly -->
+  <path fill="#6B6C72" fill-opacity=".55" d="M36,110 C41,116 50,119.4 60,120.4 C70,121.2 80,120.6 86,119 C76,118.4 64,118 54,116.4 C46,115 40,113 36,110 Z"/>
+
+  <!-- folded wing and mantle -->
+  <path fill="#7B746B" d="M64,66 C55,72 46,83 46,95 C46,105 53,112.5 65,114.5 C80,116.5 97,119.5 116,126.5 C114,116.5 108.5,100.5 101,86.5 C96,75 93,63 89,56.5 C86,52.5 81,51.5 76,52 C70,53 66,58 64,66 Z"/>
+  <!-- dark primaries, tucked under the tertials -->
+  <path fill="#46413C" d="M78,108 C90,106.5 102,109 110,114.5 C112.6,118 114.6,122 116,126.5 C104,122.4 92,119.2 80,117.4 C77,115 76.6,110.6 78,108 Z"/>
+  <path fill="none" stroke="#5F5952" stroke-width="1" stroke-linecap="round" d="M93,110.4 C100.4,111.6 106,114.4 110.4,118"/>
+  <!-- secondaries, rounded tertial tips resting on the primaries -->
+  <path fill="#655E56" d="M46.2,96 C51,103.6 61,107 72,107.6 C78,107.8 84,107.4 88,108.4 C91.6,109.4 92.6,112.4 90.6,114.6 C88.4,116.8 84.2,117.6 80,117.4 C75,116.8 70,115.6 65,114.5 C53,112.5 46,105 46.2,96 Z"/>
+  <path fill="#6F685F" d="M74,108 C79,107.6 84.6,107.6 88,108.4 C90.6,109.2 91.6,110.8 91.2,112.4 C87.6,110.6 81,109.2 74,108 Z"/>
+  <!-- middle covert row, scalloped tips -->
+  <path fill="#857D71" d="M48.4,86 C60,84 80,84 99.8,86 C100.6,88.4 101.6,91 103,95 q-4,3.4 -8.1,0.2 q-4,3.4 -8.1,0 q-4,3.4 -8.1,-0.2 q-4,3.4 -8.1,-0.4 q-4,3.4 -8.1,-0.4 q-4,3.4 -8.1,-0.6 q-3.4,3 -6.6,-0.6 C47.4,90 47.8,88 48.4,86 Z"/>
+  <!-- lit scapulars / upper coverts, scalloped tips -->
+  <path fill="#8F877B" d="M64,66 C66,58 70,53 76,52 C81,51.5 86,52.5 89,56.5 C92.5,63 95,74.5 98.4,82.6 q-4,3.4 -8,0.3 q-4,3.4 -8,0 q-4,3.4 -8,-0.3 q-4,3.4 -8,-0.4 q-4,3.4 -8,-0.6 q-3.6,3 -7.2,-0.4 C52,77.6 57,71 64,66 Z"/>
+  <!-- breast cap closing the gap in front of the neck -->
+  <path fill="#6D665D" d="M57,63 C58,67.6 59.6,71 61.6,74 L56,77.6 C53.6,78.6 51.6,79.6 50,80.6 C52,75 54.6,69 57,63 Z"/>
+
+  <!-- neck socket: an exact copy of gus-head's neck base (head box sits at 4,-40) -->
+  <g clip-path="url(#nkClip)">
+    <g transform="translate(4 -40)">
+      <path fill="url(#skW)" d="M60,52 C59,60 51,66 49,75 C47,85 49,97 54,108 L56,120 L82,120 L80,108 C77,100 71,93 70,86 C69,78 74,72 79,67 C85,61 89,56 88,48 Z"/>
+      <path fill="url(#skS)" d="M74,52 C74,56 71,60 67,64.5 C62,70 57,76 57,86 C58,93 65,100 68,108 L70,120 L75,120 L73,108 C70,100 64,93 63,86 C62,77 67,71 72,66 C77,61 81,57 81,50 Z"/>
+      <path fill="url(#skC)" d="M88,48 C89,56 85,61 79,67 C74,72 69,78 70,86 C71,93 77,100 80,108 L82,120 L75,120 L73,108 C70,100 64,93 63,86 C62,77 67,71 72,66 C77,61 81,57 81,50 Z"/>
+    </g>
+  </g>
+  <!-- hunched shoulder closing over the neck base -->
+  <path fill="#8F877B" d="M88.4,57 C81,60 73,64.2 66,67.8 C61,70.4 57.4,73 55.2,75.8 C54.4,77 54,78 53.8,79.4 C60,78.4 72,77.8 88,78.4 Z"/>
+  <!-- warm rim along the shoulder and back -->
+  <path fill="#A79F91" d="M80,53.2 C84,53 87,54.4 89,57 C91.5,61 93.5,68 96,74.5 C92.5,69 89.5,62.5 86.5,58.6 C84.6,56.2 82.4,54.4 80,53.2 Z"/>
+  <path fill="#9A9285" d="M57.4,74.4 C62,70.6 68,67 75,63.6 C79,61.6 83.4,59.6 87.4,58 C82,61.2 74,65.4 67,69.4 C63,71.6 60,73 57.4,74.4 Z"/>
+
+  <!-- near foot: big flat dark web, toes curled over the piling rim -->
+  <path fill="#3A3632" d="M64,122.4 C59,121.6 52,121.6 48.2,122.4 C46.2,122.8 45,123.8 44.6,125 C44.2,126.4 44.5,128 45.3,129.3 C45.9,129.8 46.7,129.5 46.8,128.8 L47,128.1 L66.5,128.1 C67.5,126.4 67,123.5 64,122.4 Z"/>
+  <path fill="#57514A" d="M48.6,122.7 C53,121.9 59,121.9 63.6,122.7 C59,123 53,123.1 48.6,123.6 Z"/>
+  <path fill="none" stroke="#24211F" stroke-width=".8" stroke-linecap="round" d="M49.6,123.6 C48.6,124.8 48.1,126.2 48.2,127.6"/>
+  <path fill="none" stroke="#24211F" stroke-width=".7" stroke-linecap="round" d="M53.4,123.4 C52.8,124.6 52.6,126 52.8,127.4"/>
+</svg>

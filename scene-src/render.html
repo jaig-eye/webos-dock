@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Plate renderer</title>
+<style>body{margin:0;background:#111;color:#ddd;font:16px sans-serif}#log{padding:12px;white-space:pre}canvas{display:none}</style>
+</head><body><div id="log">rendering...</div>
+<script src="art/plate.js"></script>
+<script>
+// Renders art/plate.js for each phase to a 1920x1080 JPEG and saves it to plates/<phase>.jpg via the dev server.
+(function () {
+  var PHASES = ['dawn', 'day', 'golden', 'dusk', 'night'];
+  var log = document.getElementById('log');
+  function say(s) { log.textContent += '\n' + s; }
+  function one(i) {
+    if (i >= PHASES.length) { say('done'); window.__renderDone = true; return; }
+    var ph = PHASES[i], svg;
+    try { svg = window.buildPlate(ph); } catch (e) { say(ph + ': buildPlate failed: ' + e); one(i + 1); return; }
+    var url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+    var img = new Image();
+    img.onload = function () {
+      var c = document.createElement('canvas'); c.width = 1920; c.height = 1080;
+      var g = c.getContext('2d'); g.drawImage(img, 0, 0, 1920, 1080);
+      var data = c.toDataURL('image/jpeg', 0.9);
+      fetch('/save?name=plates/' + ph + '.jpg', { method: 'POST', body: data })
+        .then(function (r) { return r.text(); })
+        .then(function (t) { say(ph + ': ' + t + ' (' + Math.round(data.length * 0.75 / 1024) + ' KB)'); one(i + 1); })
+        .catch(function (e) { say(ph + ': save failed ' + e); one(i + 1); });
+    };
+    img.onerror = function () { say(ph + ': SVG failed to load (invalid markup?)'); one(i + 1); };
+    img.src = url;
+  }
+  one(0);
+})();
+</script></body></html>

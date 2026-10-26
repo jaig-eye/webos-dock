@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Pip's Dock preview</title>
+<link rel="stylesheet" href="scene.css">
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #000; font-family: sans-serif; color: #fff; }
+  #stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; transform-origin: 0 0; }
+  #scene { animation: zoom 40s linear infinite alternate; transform-origin: 50% 60%; will-change: transform; }
+  @keyframes zoom { from { transform: scale(1); } to { transform: scale(1.03); } }
+  #shade { position: absolute; left: 0; top: 480px; width: 1920px; height: 600px; background: linear-gradient(rgba(6,8,12,0), rgba(6,8,12,.72)); }
+  #clock { position: absolute; right: 120px; top: 52px; text-align: right; text-shadow: 0 2px 24px rgba(0,0,0,.45); }
+  #time { font-size: 112px; font-weight: 300; line-height: 1.05; }
+  #date { font-size: 36px; }
+  .row { position: absolute; left: 0; width: 1920px; }
+  .row h2 { margin: 0 0 0 124px; height: 52px; font-size: 32px; line-height: 52px; font-weight: 500; color: rgba(255,255,255,.85); }
+  .cards { padding: 22px 0 0 120px; white-space: nowrap; }
+  .card { display: inline-block; width: 352px; height: 198px; margin-right: 52px; border-radius: 24px; vertical-align: top; }
+  .card.on { transform: scale(1.1); box-shadow: 0 0 0 5px #fff; }
+  .lbl { width: 352px; text-align: center; font-size: 28px; margin-top: 20px; color: rgba(255,255,255,.78); }
+  #hud { position: absolute; left: 20px; top: 16px; font: 20px/1.3 Consolas, monospace; background: rgba(0,0,0,.5); padding: 6px 10px; border-radius: 6px; }
+  #hud.off { display: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="scene"></div>
+  <div id="shade"></div>
+  <div id="clock"><div id="time">6:42<span style="font-size:36px;margin-left:12px">PM</span></div><div id="date">Sunday, October 25</div></div>
+  <div class="row" style="top:578px"><h2>Favourites</h2>
+    <div class="cards"><div class="card on" style="background:linear-gradient(135deg,#fff,#e4e5ea)"></div><div class="card" style="background:linear-gradient(135deg,#2c2c2c,#0b0b0b)"></div><div class="card" style="background:linear-gradient(135deg,#2f55b0,#0b1a4a)"></div><div class="card" style="background:linear-gradient(135deg,#232830,#0a0c0f)"></div><div class="card" style="background:linear-gradient(135deg,#4343e0,#15156b)"></div></div>
+  </div>
+  <div class="row" style="top:950px;opacity:.5"><h2>Apps</h2></div>
+  <div id="hud">-</div>
+</div>
+<script src="scene.js"></script>
+<script>
+// Preview controls: 1-5 = dawn/day/golden/dusk/night, 0 = real sun, M/D/F/B/S/R = manatee/dolphins/fish/bite/star/rocket,
+// L = cycle level, H = hide this readout, arrows = pretend to use the remote. URL: ?phase=night&event=rocket&level=1&fit=1
+(function () {
+  var q = {}; location.search.replace(/[?&]([^=]+)=([^&]*)/g, function (_, k, v) { q[k] = decodeURIComponent(v); });
+  var stage = document.getElementById('stage');
+  function fit() { if (q.fit) stage.style.transform = 'scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')'; }
+  fit(); window.addEventListener('resize', fit);
+  var sceneEl = document.getElementById('scene');
+  Scene.init(sceneEl, { art: 'art/', plates: 'plates/', level: q.level ? +q.level : 2 });
+  if (q.phase) Scene.setPhase(q.phase);
+  if (q.event) setTimeout(function () { Scene.trigger(q.event); }, 800);
+  var hud = document.getElementById('hud'), lvl = q.level ? +q.level : 2;
+  function show() { hud.textContent = 'phase ' + Scene.phase() + ' | sun ' + Scene.sunElevation().toFixed(1) + '° | level ' + lvl; }
+  show(); setInterval(show, 5000);
+  var keys = { 49: 'dawn', 50: 'day', 51: 'golden', 52: 'dusk', 53: 'night' };
+  var evs = { 77: 'manatee', 68: 'dolphins', 70: 'mullet', 66: 'bite', 83: 'star', 82: 'rocket' };
+  document.addEventListener('keydown', function (e) {
+    if (keys[e.keyCode]) Scene.setPhase(keys[e.keyCode]);
+    else if (e.keyCode === 48) Scene.setPhase(null);
+    else if (evs[e.keyCode]) Scene.trigger(evs[e.keyCode]);
+    else if (e.keyCode === 76) { lvl = (lvl + 2) % 3; Scene.setLevel(lvl); }
+    else if (e.keyCode === 72) hud.classList.toggle('off');
+    else if (e.keyCode >= 37 && e.keyCode <= 40) Scene.notifyKey();
+    show();
+  });
+  window.__fps = function (ms, cb) {
+    var ts = [];
+    function f(t) { ts.push(t); if (t - ts[0] < ms) requestAnimationFrame(f); else { var d = []; for (var i = 1; i < ts.length; i++) d.push(ts[i] - ts[i - 1]); cb({ fps: +((ts.length - 1) / ((ts[ts.length - 1] - ts[0]) / 1000)).toFixed(1), slow: d.filter(function (x) { return x > 34; }).length, frames: d.length }); } }
+    requestAnimationFrame(f);
+  };
+})();
+</script>
+</body>
+</html>

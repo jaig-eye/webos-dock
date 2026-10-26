@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Icon renderer</title></head><body style="background:#222;color:#ddd;font:16px sans-serif"><div id="log">rendering...</div>
+<script>
+// Renders the Dock app icon (Pip's head on a lagoon tile) at 80 and 130 px and saves icons/icon-<size>.png.
+(function () {
+  var log = document.getElementById('log');
+  var head = new Image();
+  head.onload = function () {
+    [80, 130].forEach(function (s, i) {
+      var c = document.createElement('canvas'); c.width = s; c.height = s;
+      var g = c.getContext('2d'), r = s * 0.22;
+      g.beginPath(); g.moveTo(r, 0); g.arcTo(s, 0, s, s, r); g.arcTo(s, s, 0, s, r); g.arcTo(0, s, 0, 0, r); g.arcTo(0, 0, s, 0, r); g.closePath(); g.clip();
+      var sky = g.createLinearGradient(0, 0, 0, s); sky.addColorStop(0, '#3A7FC4'); sky.addColorStop(.62, '#9fd0ee'); sky.addColorStop(.62, '#2E7C9E'); sky.addColorStop(1, '#1d5470');
+      g.fillStyle = sky; g.fillRect(0, 0, s, s);
+      g.fillStyle = 'rgba(255,255,255,.35)'; g.fillRect(s * .1, s * .7, s * .3, s * .02); g.fillRect(s * .55, s * .78, s * .3, s * .02);
+      var w = s * 0.92, h = w * 100 / 110;
+      g.drawImage(head, (s - w) / 2 + s * 0.02, s - h - s * 0.06, w, h);
+      fetch('/save?name=icons/icon-' + s + '.png', { method: 'POST', body: c.toDataURL('image/png') }).then(function (r) { return r.text(); }).then(function (t) { log.textContent += '\n' + t; if (i === 1) window.__iconDone = true; });
+    });
+  };
+  head.src = 'art/pip-head.svg';
+})();
+</script></body></html>
