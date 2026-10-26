@@ -51,18 +51,22 @@
     });
     return URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }));
   }
-  var SOUNDS = null, pools = {}, lastPlay = 0;
-  function build() {
-    SOUNDS = {
-      move: wav([[1320, 28, 0.35]]),
-      open: wav([[660, 45, 0.5], [990, 70, 0.5]]),
-      menu: wav([[880, 40, 0.4]]),
-      wake: wav([[520, 60, 0.35], [780, 80, 0.35]])
-    };
-    Object.keys(SOUNDS).forEach(function (k) {
-      pools[k] = [0, 1, 2].map(function () { var a = new Audio(SOUNDS[k]); a.preload = 'auto'; return a; });
-      pools[k].next = 0;
-    });
+  // Each <audio> element can hold one of the TV's media pipelines, so there is at most one per sound, made the first
+  // time it's needed, and all of them are freed whenever another app is on screen (so Hulu, YouTube... get them).
+  var SPEC = {
+    move: [[1320, 28, 0.35]],
+    open: [[660, 45, 0.5], [990, 70, 0.5]],
+    menu: [[880, 40, 0.4]],
+    wake: [[520, 60, 0.35], [780, 80, 0.35]]
+  };
+  var urls = {}, players = {}, lastPlay = 0;
+  function player(name) {
+    if (players[name]) return players[name];
+    if (!urls[name]) urls[name] = wav(SPEC[name]);
+    var a = new Audio(urls[name]);
+    a.preload = 'auto';
+    players[name] = a;
+    return a;
   }
   D.sound = {
     enabled: function () { return D.store.get('soundsOn', D.CONFIG.sounds.enabled); },
@@ -73,15 +77,22 @@
         var now = Date.now();
         if (name === 'move' && now - lastPlay < 60) return;   // holding an arrow key shouldn't machine-gun
         lastPlay = now;
-        if (!SOUNDS) build();
-        var pool = pools[name];
-        if (!pool) return;
-        var a = pool[pool.next]; pool.next = (pool.next + 1) % pool.length;
+        if (!SPEC[name]) return;
+        var a = player(name);
         a.volume = Math.max(0, Math.min(1, D.CONFIG.sounds.volume));
         a.currentTime = 0;
         var p = a.play();
         if (p && p.catch) p.catch(function () { /* autoplay refused: stay silent */ });
       } catch (e) { /* sound is optional */ }
+    },
+    // free every audio element and sound buffer (they are rebuilt on demand)
+    release: function () {
+      Object.keys(players).forEach(function (k) {
+        try { players[k].pause(); players[k].removeAttribute('src'); players[k].load(); } catch (e) { /* ignore */ }
+      });
+      players = {};
+      Object.keys(urls).forEach(function (k) { try { URL.revokeObjectURL(urls[k]); } catch (e) { /* ignore */ } });
+      urls = {};
     }
   };
 })(window.Dock);

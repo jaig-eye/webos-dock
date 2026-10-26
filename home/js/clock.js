@@ -37,8 +37,17 @@
     if (id) id.textContent = dateEl.textContent;
   }
 
+  // One tick per minute, just after the minute changes (not every second): the text can only change once a minute.
+  var tickTimer = null;
+  function scheduleTick() {
+    clearTimeout(tickTimer);
+    tickTimer = setTimeout(function () { tick(); scheduleTick(); }, 60000 - (Date.now() % 60000) + 250);
+  }
+
   D.clock = {
-    init: function (t, d) { timeEl = t; dateEl = d; tz = D.store.get('tz', 'cfg') === 'tv' ? null : D.CONFIG.timeZone; build(); setInterval(tick, 1000); },
+    init: function (t, d) { timeEl = t; dateEl = d; tz = D.store.get('tz', 'cfg') === 'tv' ? null : D.CONFIG.timeZone; build(); scheduleTick(); },
+    pause: function () { clearTimeout(tickTimer); tickTimer = null; },
+    resume: function () { if (timeEl) { tick(); scheduleTick(); } },
     setH12: function (v) { h12 = v; build(); },
     // 'cfg' = the configured zone, 'tv' = whatever the TV is set to
     setZoneMode: function (mode) { D.store.set('tz', mode); tz = mode === 'tv' ? null : D.CONFIG.timeZone; build(); },

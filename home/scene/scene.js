@@ -344,10 +344,21 @@
       el.plateB.style.backgroundImage = 'none';
       el.plateB.className = 'sc-plate b snap';
       el.clouds.style.backgroundImage = 'none';
+      // empty every sprite <img> too, so their decoded pictures can be dropped (each remembers its source)
+      var imgs = root.getElementsByTagName('img'), i;
+      for (i = 0; i < imgs.length; i++) {
+        var s = imgs[i].getAttribute('src');
+        if (s) { imgs[i].setAttribute('data-src', s); imgs[i].removeAttribute('src'); }
+      }
     },
     restore: function () {
       if (released) {
         released = false;
+        var imgs = root.getElementsByTagName('img'), i;
+        for (i = 0; i < imgs.length; i++) {
+          var s = imgs[i].getAttribute('data-src');
+          if (s) { imgs[i].setAttribute('src', s); imgs[i].removeAttribute('data-src'); }
+        }
         el.clouds.style.backgroundImage = 'url(' + art('cloud-tile.svg') + ')';
         el.plateA.style.backgroundImage = 'url(' + plateUrl(phase) + ')';
         root.style.display = '';

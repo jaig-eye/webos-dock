@@ -4,11 +4,9 @@ html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background:
 #stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; background: #10141c; }
 .layer { position: absolute; left: 0; top: 0; }
 
-/* ---- backdrop: the Pip's Dock scene (scene/scene.css) inside a gently zooming container ---- */
-#scene { width: 1920px; height: 1080px; transform-origin: 50% 60%; }
-.bd1 #scene, .bd2 #scene { animation: zoom 40s linear infinite alternate; will-change: transform; }
-.paused #scene { animation-play-state: paused !important; }
-@keyframes zoom { from { transform: scale(1) } to { transform: scale(1.03) } }
+/* ---- backdrop: the Pip's Dock scene (scene/scene.css). It no longer zooms: a zooming container would be one more
+   full-screen layer at 4K plus an intermediate surface for everything inside it, and budget TVs have little memory. ---- */
+#scene { width: 1920px; height: 1080px; }
 
 /* bottom shade keeps the rows readable on bright skies */
 #shade { position: absolute; left: 0; top: 480px; width: 1920px; height: 600px;

@@ -1,13 +1,16 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Splash renderer</title></head><body style="background:#222;color:#ddd;font:16px sans-serif"><div id="log">rendering...</div>
 <script>
-// Renders Dock's 1920x1080 loading splash (the day plate, softly dimmed, with Pip and the app name) to icons/splash.png.
+// Renders Dock's 1920x1080 loading splash to icons/splash.png: a soft, grain-free version of the day plate (drawn small and
+// scaled up, so it compresses to a few hundred KB instead of 3.6 MB), dimmed, with Pip and the app name.
 (function () {
   var plate = new Image(), head = new Image(), n = 0;
   function go() {
     if (++n < 2) return;
+    var small = document.createElement('canvas'); small.width = 192; small.height = 108;
+    var sg = small.getContext('2d'); sg.imageSmoothingQuality = 'high'; sg.drawImage(plate, 0, 0, 192, 108);
     var c = document.createElement('canvas'); c.width = 1920; c.height = 1080;
-    var g = c.getContext('2d');
-    g.drawImage(plate, 0, 0, 1920, 1080);
+    var g = c.getContext('2d'); g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high';
+    g.drawImage(small, 0, 0, 1920, 1080);
     var v = g.createRadialGradient(960, 520, 120, 960, 520, 900); v.addColorStop(0, 'rgba(8,14,24,.25)'); v.addColorStop(1, 'rgba(8,14,24,.7)');
     g.fillStyle = v; g.fillRect(0, 0, 1920, 1080);
     g.drawImage(head, 960 - 165, 330, 330, 300);

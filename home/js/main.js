@@ -130,8 +130,8 @@
     document.addEventListener('webOSRelaunch', refreshSoon);
     document.addEventListener('visibilitychange', function () {
       // another app is on screen: unload the scene so that app gets the memory (budget TVs have little free memory)
-      if (document.visibilityState === 'hidden') { D.backdrop.release(); D.weather.pause(); D.idle.pause(); }
-      else { D.backdrop.restore(); D.weather.resume(); D.idle.resume(); refreshSoon(); }
+      if (document.visibilityState === 'hidden') { D.backdrop.release(); D.weather.pause(); D.idle.pause(); D.clock.pause(); D.sound.release(); }
+      else { D.backdrop.restore(); D.weather.resume(); D.idle.resume(); D.clock.resume(); refreshSoon(); }
     });
     var lastPoint = 0;                                    // moving the Magic Remote pointer also counts as use
     document.addEventListener('mousemove', function () { if (Date.now() - lastPoint > 1000) { lastPoint = Date.now(); D.idle.poke(); } });
