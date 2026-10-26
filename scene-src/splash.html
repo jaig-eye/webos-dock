@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Splash renderer</title></head><body style="background:#222;color:#ddd;font:16px sans-serif"><div id="log">rendering...</div>
+<script>
+// Renders Dock's 1920x1080 loading splash (the day plate, softly dimmed, with Pip and the app name) to icons/splash.png.
+(function () {
+  var plate = new Image(), head = new Image(), n = 0;
+  function go() {
+    if (++n < 2) return;
+    var c = document.createElement('canvas'); c.width = 1920; c.height = 1080;
+    var g = c.getContext('2d');
+    g.drawImage(plate, 0, 0, 1920, 1080);
+    var v = g.createRadialGradient(960, 520, 120, 960, 520, 900); v.addColorStop(0, 'rgba(8,14,24,.25)'); v.addColorStop(1, 'rgba(8,14,24,.7)');
+    g.fillStyle = v; g.fillRect(0, 0, 1920, 1080);
+    g.drawImage(head, 960 - 165, 330, 330, 300);
+    g.font = '300 96px sans-serif'; g.textAlign = 'center'; g.fillStyle = '#fff';
+    g.shadowColor = 'rgba(0,0,0,.5)'; g.shadowBlur = 24; g.fillText('Dock', 960, 740);
+    fetch('/save?name=icons/splash.png', { method: 'POST', body: c.toDataURL('image/png') }).then(function (r) { return r.text(); }).then(function (t) { document.getElementById('log').textContent += '\n' + t; window.__done = true; });
+  }
+  plate.onload = go; head.onload = go;
+  plate.src = 'plates/day.jpg'; head.src = 'art/pip-head.svg';
+})();
+</script></body></html>
